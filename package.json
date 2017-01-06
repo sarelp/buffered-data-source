@@ -2,8 +2,8 @@
   "name": "buffered-data-source",
   "description": "Buffered (caching) of pageable data",
   "version": "0.0.0",
-  "main": "dist/src/buffered-data-source.js",
-  "typings": "dist/src/buffered-data-source.d.ts",
+  "main": "dist/buffered-data-source.js",
+  "typings": "dist/buffered-data-source.d.ts",
   "repository": {
     "type": "git",
     "url": "git@github.com:sarelp/buffered-data-source.git"
@@ -15,6 +15,10 @@
   },
   "author": "Sarel Lugtenburg",
   "license": "MIT",
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
   "dependencies": {},
   "devDependencies": {
     "@types/assert": "0.0.31",
@@ -25,5 +29,5 @@
     "ts-node": "^1.7.0",
     "typescript": "^2.1.4"
   },
-  "keywords": ["datatable", "caching", "rest"]
+  "keywords": ["datatable", "caching", "rest", "infinite scroll"]
 }

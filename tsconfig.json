@@ -1,8 +1,7 @@
 {
   "compilerOptions": {
     "declaration": true,
-    "rootDir": ".",
-    "outDir": "./dist/",
+    "outDir": "dist",
     "sourceMap": true,
     "noImplicitAny": true,
     "module": "commonjs",
@@ -16,5 +15,10 @@
       "node"
     ]
   },
-  "exclude": ["node_modules", "examples", "dist"]
+  "exclude": [
+    "node_modules",
+    "examples",
+    "dist",
+    "test"
+  ]
 }
