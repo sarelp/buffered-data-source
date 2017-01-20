@@ -5,3 +5,4 @@ bin
 .idea
 src/**/*.js
 test/**/*.js
+*.log
