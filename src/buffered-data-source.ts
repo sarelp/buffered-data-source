@@ -22,6 +22,7 @@ export interface DataSourceRowEventSources<T> {
   addRow: Source<AddRowEvent<T>>;
   deleteRow: Source<DeleteRowEvent>;
   updateRow: Source<UpdateRowEvent<T>>;
+  invalidateRow: Source<InvalidateRowEvent>;
 }
 
 export type DataSourceObservableRowSources<T> = (rowNumber?: number) => DataSourceRowEventSources<T>;
