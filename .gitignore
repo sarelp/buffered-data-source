@@ -3,3 +3,5 @@ dist
 bin
 *.iml
 .idea
+src/**/*.js
+test/**/*.js

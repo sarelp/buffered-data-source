@@ -174,7 +174,8 @@ export class DataSourceEventHandlerImpl<T> implements DataSourceEventHandler<T> 
     return {
       addRow: this.subscriber('ADD_ROW', rowNumber),
       deleteRow: this.subscriber('DELETE_ROW', rowNumber),
-      updateRow: this.subscriber('UPDATE_ROW', rowNumber)
+      updateRow: this.subscriber('UPDATE_ROW', rowNumber),
+      invalidateRow: this.subscriber('INVALIDATE_ROW', rowNumber)
     };
   };
 
