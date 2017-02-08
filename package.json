@@ -1,7 +1,7 @@
 {
   "name": "buffered-data-source",
   "description": "Buffered (caching) of pageable data",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "dist/buffered-data-source.js",
   "typings": "dist/buffered-data-source.d.ts",
   "repository": {
