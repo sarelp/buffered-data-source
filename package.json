@@ -17,6 +17,7 @@
   "license": "MIT",
   "files": [
     "dist",
+    "src",
     "LICENSE"
   ],
   "dependencies": {},
