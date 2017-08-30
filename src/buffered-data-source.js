@@ -1,5 +1,6 @@
 "use strict";
-var ObservableHandler = (function () {
+Object.defineProperty(exports, "__esModule", { value: true });
+var ObservableHandler = /** @class */ (function () {
     function ObservableHandler() {
         this.observers = {};
     }
@@ -20,11 +21,11 @@ var ObservableHandler = (function () {
             }
         });
     };
+    ObservableHandler.currentIndex = 0;
     return ObservableHandler;
 }());
-ObservableHandler.currentIndex = 0;
 exports.ObservableHandler = ObservableHandler;
-var DataSourceEventHandlerImpl = (function () {
+var DataSourceEventHandlerImpl = /** @class */ (function () {
     function DataSourceEventHandlerImpl() {
         this.handler = new ObservableHandler();
         this.invalidateCache = this.subscriber('INVALIDATE_CACHE');
@@ -63,7 +64,7 @@ var DataSourceEventHandlerImpl = (function () {
     return DataSourceEventHandlerImpl;
 }());
 exports.DataSourceEventHandlerImpl = DataSourceEventHandlerImpl;
-var BufferedDataSource = (function () {
+var BufferedDataSource = /** @class */ (function () {
     function BufferedDataSource(options) {
         this.pageCache = {};
         this.cntCacheEntries = 0;
@@ -344,5 +345,4 @@ var BufferedDataSource = (function () {
     return BufferedDataSource;
 }());
 exports.BufferedDataSource = BufferedDataSource;
-Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = BufferedDataSource;

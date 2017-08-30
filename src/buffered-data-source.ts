@@ -149,7 +149,7 @@ export class ObservableHandler {
 
 export class DataSourceEventHandlerImpl<T> implements DataSourceEventHandler<T> {
   handler = new ObservableHandler();
-  private subscriber<E extends ObservableEvent>(eventType: EventType, rowNumber?: number) {
+  private subscriber<E extends ObservableEvent>(eventType: EventType, rowNumber?: number): Source<E> {
     let disposer: () => void;
 
     const self = {
@@ -171,7 +171,7 @@ export class DataSourceEventHandlerImpl<T> implements DataSourceEventHandler<T> 
     return self;
   };
 
-  rowEvent(rowNumber?: number) {
+  rowEvent(rowNumber?: number): DataSourceRowEventSources<T> {
     return {
       addRow: this.subscriber('ADD_ROW', rowNumber),
       deleteRow: this.subscriber('DELETE_ROW', rowNumber),

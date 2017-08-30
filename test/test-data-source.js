@@ -1,6 +1,7 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var assert = require('assert');
-var TestDataSource = (function () {
+var TestDataSource = /** @class */ (function () {
     function TestDataSource(options) {
         this.rows = [];
         this.deletePromises = {};

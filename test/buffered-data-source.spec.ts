@@ -37,7 +37,7 @@ describe('BufferedDataSource', () => {
     describe('Checking prefetching logic', () => {
         class TestPromiseDataSource implements DataSource<string> {
             pageSize: number;
-            record: {pageNum: number, resolver: (value: string) => void }[] = [];
+            record: {pageNum: number, resolver: (value: string[]) => void }[] = [];
             totalRows: number;
 
             constructor(pageSize: number, totalRows?: number) {
@@ -45,12 +45,12 @@ describe('BufferedDataSource', () => {
                 this.totalRows = totalRows;
             }
 
-            getPage(pageNumber: number) {
+            getPage(pageNumber: number): Promise<string[]> {
                 return new Promise(resolve => this.record.push({pageNum: pageNumber, resolver: resolve}));
             }
 
             resolveAll() {
-                this.record.forEach(r => r.resolver('page' + r.pageNum));
+                this.record.forEach(r => r.resolver(['page' + r.pageNum]));
             }
         }
 
@@ -84,7 +84,7 @@ describe('BufferedDataSource', () => {
             assert.equal(pds.record[i++].pageNum, 2);
             assert.equal(pds.record.length, i);
             return Promise.all(results).then(values => {
-                assert.equal(values[0], values[4]);
+                assert.equal(values[0][0], values[4][0]);
                 assert.equal(values[1], values[2]);
                 assert.notEqual(values[4], values[5]);
             });

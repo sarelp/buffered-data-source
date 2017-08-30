@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 require("mocha");
 var test_data_source_1 = require("./test-data-source");
 var buffered_data_source_1 = require("../src/buffered-data-source");

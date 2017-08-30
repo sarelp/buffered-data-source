@@ -1,11 +1,12 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var buffered_data_source_1 = require("../src/buffered-data-source");
 require("mocha");
 var assert = require('assert');
 describe('BufferedDataSource', function () {
     describe('Reading rows from BufferedDataSource', function () {
         var data = ['row0', 'row1', 'row2', 'row3', 'row4', 'row5', 'row6'];
-        var TestDataSource = (function () {
+        var TestDataSource = /** @class */ (function () {
             function TestDataSource(pageSize) {
                 this.pageSize = pageSize;
             }
@@ -27,7 +28,7 @@ describe('BufferedDataSource', function () {
         it('should return undefined if row is not present', function () { return cds.getRow(7).then(function (row) { return assert.equal(row, undefined); }); });
     });
     describe('Checking prefetching logic', function () {
-        var TestPromiseDataSource = (function () {
+        var TestPromiseDataSource = /** @class */ (function () {
             function TestPromiseDataSource(pageSize, totalRows) {
                 this.record = [];
                 this.pageSize = pageSize;
@@ -38,7 +39,7 @@ describe('BufferedDataSource', function () {
                 return new Promise(function (resolve) { return _this.record.push({ pageNum: pageNumber, resolver: resolve }); });
             };
             TestPromiseDataSource.prototype.resolveAll = function () {
-                this.record.forEach(function (r) { return r.resolver('page' + r.pageNum); });
+                this.record.forEach(function (r) { return r.resolver(['page' + r.pageNum]); });
             };
             return TestPromiseDataSource;
         }());
@@ -69,7 +70,7 @@ describe('BufferedDataSource', function () {
             assert.equal(pds.record[i++].pageNum, 2);
             assert.equal(pds.record.length, i);
             return Promise.all(results).then(function (values) {
-                assert.equal(values[0], values[4]);
+                assert.equal(values[0][0], values[4][0]);
                 assert.equal(values[1], values[2]);
                 assert.notEqual(values[4], values[5]);
             });
